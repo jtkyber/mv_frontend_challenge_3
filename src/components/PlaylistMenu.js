@@ -1,15 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists } from '../actions';
+import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists, toggleMobilePlaylists } from '../actions';
 
 const PlaylistMenu = () => {
     const dispatch = useDispatch();
     const playlists = useSelector(state => state.playlists);
     const playlistInput = useSelector(state => state.playlistInput);
     const selectedPlaylist = useSelector(state => state.selectedPlaylist);
+    const mobilePlaylistsExpanded = useSelector(state => state.mobilePlaylistsExpanded);
 
     const playlistInputRef = useRef(null);
     const submitBtnRef = useRef(null);
+    const playlistMenuContainerRef = useRef(null);
 
     useEffect(() => {
         const localPlaylist = JSON.parse(localStorage.getItem('userPlaylists'));
@@ -40,12 +42,15 @@ const PlaylistMenu = () => {
         if (e.target.tagName === 'H2') return;
         const playlistTemp = {...playlist};
         dispatch(setSelectedPlaylist(playlistTemp));
+
+        if (playlistMenuContainerRef.current.classList.contains('expanded')) {
+            // playlistMenuContainerRef.current.classList.add('shrunk');
+            dispatch(toggleMobilePlaylists(false))
+        }
     }
 
     const handlePlaylistRemoval = (name, index) => {
-        if (name === selectedPlaylist.name) {
-            dispatch(setSelectedPlaylist(playlists[index + 1] || playlists[index - 1] || {}));
-        }
+        if (name === selectedPlaylist.name) dispatch(setSelectedPlaylist(playlists[index + 1] || playlists[index - 1] || {}))
         dispatch(removePlaylist(index));
     }
 
@@ -53,8 +58,12 @@ const PlaylistMenu = () => {
         if (e.code === 'Enter' && e.target === playlistInputRef.current) submitBtnRef.current.click();
     }
 
+    const handlePlaylistTabClick = (e) => {
+        if (e.target.offsetHeight < 50) dispatch(toggleMobilePlaylists(true))
+    }
+
     return (
-        <div className='playlistMenuContainer'>
+        <div ref={playlistMenuContainerRef} onClick={handlePlaylistTabClick} className={`playlistMenuContainer ${mobilePlaylistsExpanded ? 'expanded' : null}`}>
             <h2>Playlists</h2>
             <div className='playlistMenu'>
                 {

@@ -57,6 +57,10 @@
                 border: 1px solid rgb(0, 208, 255);
             }
 
+            h3 {
+                pointer-events: none;
+            }
+
             h2 {
                 position: absolute;
                 right: -0.6rem;
@@ -91,31 +95,56 @@
 
 @media screen and (max-width: 768px) {
     .playlistMenuContainer {
+        position: absolute;
+        grid-template-rows: 3rem 1fr 3rem;
+        right: 50%;
+        top: 0;
+        width: 8rem;
+        height: 2.2rem;
+        transform: translateX(50%);
+        overflow: hidden;
         border: none;
-
+        z-index: 100;
+        border: 2px solid rgb(0, 162, 255);
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-top: none;
+        background-color: rgba($color: #000000, $alpha: 1);
+        transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
+        
+        * {
+            opacity: 0;
+        }
+        
         h2 {
-            width: 90%;
-            text-align: center;
-            margin-top: 0;
-            padding-bottom: 0.5rem;
-            border-bottom: none;
+            color: transparent;
         }
 
-        .playlistMenu {
-            height: 80%;
-            width: 100%;
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            gap: 0rem;
-            overflow-y: hidden;
-            overflow-x: auto;
-
-            .playlistItem {
-                border: 1px solid white;
-                min-width: 5rem;
-                min-height: 3rem;
+        &.expanded {
+            * {
+                opacity: 1;
             }
+            width: 100%;
+            height: 100%;
+
+            transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
         }
+
+        &::after {
+            content: "PLAYLISTS";
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: max-content;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-size: 1.3rem;
+            letter-spacing: 0.1rem;
+            font-weight: 400;
+            color: rgb(0, 162, 255);
+        }
+
     }
 }

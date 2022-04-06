@@ -21,20 +21,23 @@ const PlaylistContent = () => {
         const currentUrl = videoURLinputRef.current.value;
         let videoID;
 
-        if (!currentUrl.match('https://www.youtube.com/watch?')) {
-            return;
-        } else {
+        if (currentUrl.match('https://www.youtube.com/watch?')) {
             videoID = currentUrl.split('=')[1].split('&')[0];
             for (let video of selectedPlaylist.videos) {
                 if (video.id === videoID) return;
             }
-        }
+        } else if (currentUrl.match('https://youtu.be/')) {
+            videoID = currentUrl.split('https://youtu.be/')[1];
+            for (let video of selectedPlaylist.videos) {
+                if (video.id === videoID) return;
+            }
+        } else return;
 
         dispatch(addVideoToPlaylist({
             name: selectedPlaylist.name,
             videoData: {
-                url: videoURLinputRef.current.value,
-                thumbnail: `https://img.youtube.com/vi/${videoID}/mqdefault.jpg`,
+                url: `https://www.youtube.com/watch?v=${videoID}`,
+                thumbnail: `https://img.youtube.com/vi/${videoID}/hqdefault.jpg`,
                 id: videoID
             }
         }));

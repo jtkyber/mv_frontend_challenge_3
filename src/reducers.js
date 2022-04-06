@@ -5,7 +5,8 @@ const initialState = {
     playlistInput: '',
     selectedPlaylist: {},
     route: 'home',
-    currentVideo: {}
+    currentVideo: {},
+    mobilePlaylistsExpanded: false
 }
 
 const playlists = (state = initialState.playlists, action) => {
@@ -96,12 +97,22 @@ const currentVideo = (state = initialState.currentVideo, action) => {
     }
 }
 
+const mobilePlaylistsExpanded = (state = initialState.mobilePlaylistsExpanded, action) => {
+    switch(action.type) {
+        case 'TOGGLE_MOBILE_PLAYLISTS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const allReducers = combineReducers({
     playlists,
     playlistInput,
     selectedPlaylist,
     route,
-    currentVideo
+    currentVideo,
+    mobilePlaylistsExpanded
 })
 
 export default allReducers;

@@ -60,3 +60,10 @@ export const setPlaylists = (input) => {
         payload: input
     }
 }
+
+export const toggleMobilePlaylists = (input) => {
+    return {
+        type : 'TOGGLE_MOBILE_PLAYLISTS',
+        payload: input
+    }
+}
