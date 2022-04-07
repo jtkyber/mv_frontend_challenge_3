@@ -1,9 +1,58 @@
+$dark_green: #133f17;
+$green: #1B5921;
+$light_green: #21A62E;
+$light_green_faded: #42A64C;
+$maroon: #A61141;
+$velvet: #591B2F;
+$tinted_white: #f7fff7;
+
+@mixin custom_scrollbar() {
+    &::-webkit-scrollbar {
+      width:  0.9rem;
+      height: 1rem;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border: 1px solid $maroon;
+      border-radius: 1rem;
+
+        &:hover {
+          background: $maroon;
+        }
+    }
+
+  
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  
+    & {
+      scrollbar-face-color: $maroon;
+      scrollbar-track-color: transparent;
+    }
+}
+
+.bgContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: scale(1.03);
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px);
+    z-index: -1;
+}
+
 .appContainer {
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 15rem 1fr;
     grid-template-rows: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
 
     @import './playlistMenu';
     @import './playlistContent';

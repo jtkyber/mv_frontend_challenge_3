@@ -7,8 +7,6 @@
     "header"
     "allVideos";
     justify-items: center;
-    background-color: rgba($color: #101010, $alpha: 1);
-    color: white;
     height: 100%;
     padding-top: 1rem;
 
@@ -20,10 +18,13 @@
         align-items: center;
         justify-content: end;
         gap: 0.3rem;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid $dark_green;
         padding-bottom: 1rem;
 
         h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+            color: $velvet;
             text-transform: uppercase;
         }
 
@@ -32,16 +33,42 @@
             display: flex;
             flex-flow: row nowrap;
             height: 2rem;
+            opacity: 0.8;
 
             input {
                 text-align: center;
                 outline: none;
+                border: none;
+                background-color: black;
+                border: 2px solid rgba($color: #ffffff, $alpha: 0.8);
+                border-radius: 0.8rem;
+                width: 15rem;
+                height: 100%;
+                z-index: 20;
+                color: white;
+
+                &::placeholder {
+                    color: rgba($color: #ffffff, $alpha: 0.6);
+                }
             }
 
             button {
-                left: 100%;
-                width: 2rem;
+                width: 3rem;
                 height: 100%;
+                margin-left: -1rem;
+                padding-left: 1.2rem;
+                z-index: 10;
+                font-size: 1.5rem;
+                border-top-right-radius: 0.8rem;
+                border-bottom-right-radius: 0.8rem;
+                background-color: $light_green;
+                border: 2px solid rgba($color: #ffffff, $alpha: 0.8);
+                color: white;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.6;
+                }
             }
         }
 
@@ -68,31 +95,34 @@
             height: max-content;
             gap: 0.5rem;
 
-            h2 {
+            .videoRemovalBtn {
                 position: absolute;
                 right: -0.6rem;
                 top: -0.6rem;
                 width: 2rem;
                 height: 2rem;
                 cursor: pointer;
-                background-color: black;
-                border: 2px solid red;
+                background-color: white;
+                border: 3px solid black;
                 border-radius: 50%;
-                color: red;
+                color: $maroon;
                 z-index: 10;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                padding-bottom: 0.3rem;
 
                 &:hover {
-                    background-color: red;
+                    background-color: $maroon;
                     color: black;
                 }
             }
             
             .thumbnailContainer {
+                border: 4px solid rgba($color: #ffffff, $alpha: 0.9);
+                border-radius: 1rem;
                 position: relative;
+                overflow: hidden;
+                cursor: pointer;
                 
                 &::after {
                     content: "Play Video";
@@ -116,11 +146,8 @@
                     color: white;
                     transition: all 0.15s ease-out;
                 }
-
+                
                 img {
-                    border: 4px solid rgba($color: #ffffff, $alpha: 0.9);
-                    border-radius: 1rem;
-                    cursor: pointer;
                     width: 20rem;
                     height: 12rem;
                     object-fit: cover;
@@ -138,7 +165,7 @@
             }
         }
 
-        
+        @include custom_scrollbar();
     }
 }
 

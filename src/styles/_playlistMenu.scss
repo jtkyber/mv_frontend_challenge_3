@@ -1,6 +1,5 @@
 .playlistMenuContainer {
-    background-color: rgba($color: #101010, $alpha: 1);
-    border-right: 2px solid white;
+    border-right: 2px solid $dark_green;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 4rem 1fr 3rem;
@@ -9,16 +8,18 @@
     "playlistMenu"
     "addNewPlaylist";
     justify-items: center;
-    color: white;
+    background-color: rgba($color: #ffffff, $alpha: 0.2);
     
-    h2 {
+    .playlistHeaderText {
         grid-area: playlistHeader;
         width: 90%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding-bottom: 0.5rem;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $dark_green;
+        color: $dark_green;
+        font-weight: 800;
     }
 
     .playlistMenu {
@@ -39,7 +40,7 @@
 
         .playlistItem {
             position: relative;
-            border: 1px solid white;
+            border: 3px solid $velvet;
             border-radius: 1rem;
             width: 8rem;
             min-height: 4rem;
@@ -50,31 +51,36 @@
             cursor: pointer;
 
             &.selectedPlaylist {
-                border: 1px solid rgb(0, 208, 255);
+                border: 3px solid $maroon;
             }
 
             &:hover {
-                border: 1px solid rgb(0, 208, 255);
+                border: 3px solid $maroon;
             }
 
-            h3 {
+            .playlistItemName {
                 pointer-events: none;
+                color: white;
+                font-weight: 400;
             }
 
-            h2 {
+            .playlistRemovalBtn {
                 position: absolute;
                 right: -0.6rem;
                 top: -0.6rem;
                 width: 1.5rem;
                 height: 1.5rem;
                 cursor: pointer;
-                background-color: black;
-                border: 2px solid red;
+                background-color: white;
+                border: 3px solid black;
                 border-radius: 50%;
-                color: red;
+                color: $maroon;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
                 &:hover {
-                    background-color: red;
+                    background-color: $maroon;
                     color: black;
                 }
             }
@@ -86,10 +92,45 @@
         display: flex;
         flex-flow: row nowrap;
         margin-bottom: 1rem;
-    }
+        height: 2rem;
+        opacity: 0.8;
 
-    input {
-        text-align: center;
+        input {
+            text-align: center;
+            outline: none;
+            border: none;
+            background-color: black;
+            border: 2px solid rgba($color: #ffffff, $alpha: 0.8);
+            border-radius: 0.8rem;
+            width: 10rem;
+            height: 100%;
+            z-index: 20;
+            color: white;
+    
+            &::placeholder {
+                color: rgba($color: #ffffff, $alpha: 0.6);
+                font-size: 0.75rem;
+            }
+        }
+    
+        button {
+            width: 3rem;
+            height: 100%;
+            margin-left: -1.2rem;
+            padding-left: 1.3rem;
+            z-index: 10;
+            font-size: 1.5rem;
+            border-top-right-radius: 0.8rem;
+            border-bottom-right-radius: 0.8rem;
+            background-color: $light_green;
+            border: 2px solid rgba($color: #ffffff, $alpha: 0.8);
+            color: white;
+            cursor: pointer;
+    
+            &:hover {
+                opacity: 0.6;
+            }
+        }
     }
 }
 
@@ -99,34 +140,29 @@
         grid-template-rows: 3rem 1fr 3rem;
         right: 50%;
         top: 0;
-        width: 8rem;
-        height: 2.2rem;
+        width: 7rem;
+        height: 2rem;
         transform: translateX(50%);
         overflow: hidden;
         border: none;
         z-index: 100;
-        border: 2px solid rgb(0, 162, 255);
+        border: 2px solid $light_green_faded;
         border-bottom-left-radius: 1rem;
         border-bottom-right-radius: 1rem;
         border-top: none;
-        background-color: rgba($color: #000000, $alpha: 1);
         transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
-        
-        * {
-            opacity: 0;
-        }
-        
-        h2 {
+        cursor: pointer;
+        background-color: rgba($color: #000000, $alpha: 0.9);
+
+        .playlistHeaderText {
             color: transparent;
+            pointer-events: none;
         }
 
         &.expanded {
-            * {
-                opacity: 1;
-            }
             width: 100%;
             height: 100%;
-
+            cursor: default;
             transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
         }
 
@@ -134,16 +170,16 @@
             content: "PLAYLISTS";
             position: absolute;
             left: 0;
-            right: 0;
+            top: 0;
             width: 100%;
             height: max-content;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            font-size: 1.3rem;
-            letter-spacing: 0.1rem;
+            font-size: 0.9rem;
             font-weight: 400;
-            color: rgb(0, 162, 255);
+            color: $light_green_faded;
+            margin-top: 0.3rem;
         }
 
     }

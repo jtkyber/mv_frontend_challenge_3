@@ -64,15 +64,17 @@ const PlaylistMenu = () => {
 
     return (
         <div ref={playlistMenuContainerRef} onClick={handlePlaylistTabClick} className={`playlistMenuContainer ${mobilePlaylistsExpanded ? 'expanded' : null}`}>
-            <h2>Playlists</h2>
+            <h2 className='playlistHeaderText'>Playlists</h2>
             <div className='playlistMenu'>
                 {
                     playlists.length ?
                         playlists.map((playlist, index) => {
                             return (
                                 <div onClick={(e) => handlePlaylistItemClick(e, playlist)} key={index} className={`playlistItem ${playlist.name === selectedPlaylist.name ? 'selectedPlaylist' : null}`}>
-                                    <h3>{playlist.name}</h3>
-                                    <h2 onClick={() => handlePlaylistRemoval(playlist.name, index)}>-</h2>
+                                    <h3 className='playlistItemName'>{playlist.name}</h3>
+                                    <button className='playlistRemovalBtn' onClick={() => handlePlaylistRemoval(playlist.name, index)}>
+                                        <h2>-</h2>
+                                    </button>
                                 </div>
                             )
                         })

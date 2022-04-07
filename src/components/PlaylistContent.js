@@ -81,7 +81,9 @@ const PlaylistContent = () => {
                     selectedPlaylist.videos?.map((video, index) => {
                         return (
                             <div key={index} className='singleVideo'>
-                                <h2 onClick={() => handleVideoRemoval(video.id, index)}>-</h2>
+                                <button className='videoRemovalBtn' onClick={() => handleVideoRemoval(video.id, index)}>
+                                    <h2>-</h2>
+                                </button>
                                 <div className='thumbnailContainer'>
                                     <img onClick={() => handleVideoClick(video.id)} src={video.thumbnail} alt={video.url}/>
                                 </div>
