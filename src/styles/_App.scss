@@ -48,6 +48,7 @@ $dimmed_white: #d8d8d8;
     transform: scale(1.03);
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     filter: blur(3px);
     z-index: -1;
 }
