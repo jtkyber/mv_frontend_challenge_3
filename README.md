@@ -1,4 +1,4 @@
-# MakersValley Front-End Challenge
+# MakersValley Front-End Challenge 3
 A place where users can organize YouTube videos into playlists that they create, and then watch them in a video player or on YouTube (via a link)
 
 ## Getting Started
