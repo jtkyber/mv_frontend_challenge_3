@@ -36,6 +36,10 @@ const PlaylistMenu = () => {
     const addNewPlaylist = () => {
         if (!playlistInput) return;
 
+        for (let playlist of playlists) {
+            if (playlist.name === playlistInput) return;
+        }
+
         playlistInputRef.current.value = '';
 
         dispatch(addPlaylist(playlistInput));
