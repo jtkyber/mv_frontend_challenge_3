@@ -47,7 +47,7 @@ const PlaylistMenu = () => {
     }
 
     const handlePlaylistItemClick = (e, playlist) => {
-        if (e.target.tagName === 'H2') return;
+        if (e.target.tagName === 'H2' || e.target.tagName === 'BUTTON') return;
 
         const playlistTemp = {...playlist};
         
