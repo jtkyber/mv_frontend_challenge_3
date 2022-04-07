@@ -4,7 +4,7 @@ $light_green: #21A62E;
 $light_green_faded: #42A64C;
 $maroon: #A61141;
 $velvet: #591B2F;
-$tinted_white: #f7fff7;
+$dimmed_white: #ebebeb;
 
 @mixin custom_scrollbar() {
     &::-webkit-scrollbar {
@@ -30,6 +30,12 @@ $tinted_white: #f7fff7;
     & {
       scrollbar-face-color: $maroon;
       scrollbar-track-color: transparent;
+    }
+}
+
+@mixin no_scrollbar() {
+    &::-webkit-scrollbar {
+      display: none;
     }
 }
 

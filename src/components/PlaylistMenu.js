@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists, toggleMobilePlaylists } from '../actions';
+import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists, toggleMobilePlaylists, setRoute } from '../actions';
 
 const PlaylistMenu = () => {
     const dispatch = useDispatch();
@@ -41,12 +41,8 @@ const PlaylistMenu = () => {
     const handlePlaylistItemClick = (e, playlist) => {
         if (e.target.tagName === 'H2') return;
         const playlistTemp = {...playlist};
+        dispatch(setRoute('home'));
         dispatch(setSelectedPlaylist(playlistTemp));
-
-        if (playlistMenuContainerRef.current.classList.contains('expanded')) {
-            // playlistMenuContainerRef.current.classList.add('shrunk');
-            dispatch(toggleMobilePlaylists(false))
-        }
     }
 
     const handlePlaylistRemoval = (name, index) => {
@@ -59,7 +55,11 @@ const PlaylistMenu = () => {
     }
 
     const handlePlaylistTabClick = (e) => {
-        if (e.target.offsetHeight < 50) dispatch(toggleMobilePlaylists(true))
+        if (e.target.offsetHeight < 50) {
+            dispatch(toggleMobilePlaylists(true))
+        } else if (playlistMenuContainerRef.current.classList.contains('expanded') && e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT') {
+            dispatch(toggleMobilePlaylists(false))
+        }
     }
 
     return (

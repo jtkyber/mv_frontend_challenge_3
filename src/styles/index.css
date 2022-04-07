@@ -49,8 +49,8 @@ code {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  -ms-grid-rows: 4rem 1fr 3rem;
-      grid-template-rows: 4rem 1fr 3rem;
+  -ms-grid-rows: 4rem 1fr 4rem;
+      grid-template-rows: 4rem 1fr 4rem;
       grid-template-areas: "playlistHeader" "playlistMenu" "addNewPlaylist";
   justify-items: center;
   background-color: rgba(255, 255, 255, 0.2);
@@ -100,6 +100,7 @@ code {
 .appContainer .playlistMenuContainer .playlistMenu .playlistPlaceholder {
   text-align: center;
   font-weight: 400;
+  color: black;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem {
@@ -145,7 +146,7 @@ code {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
-  background-color: white;
+  background-color: #ebebeb;
   border: 3px solid black;
   border-radius: 50%;
   color: #A61141;
@@ -165,7 +166,33 @@ code {
   color: black;
 }
 
+.appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar {
+  width: 0.9rem;
+  height: 1rem;
+}
+
+.appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: 1px solid #A61141;
+  border-radius: 1rem;
+}
+
+.appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-thumb:hover {
+  background: #A61141;
+}
+
+.appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.appContainer .playlistMenuContainer .playlistMenu {
+  scrollbar-face-color: #A61141;
+  scrollbar-track-color: transparent;
+}
+
 .appContainer .playlistMenuContainer .addNewPlaylist {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: addNewPlaylist;
@@ -176,7 +203,6 @@ code {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  margin-bottom: 1rem;
   height: 2rem;
   opacity: 0.8;
 }
@@ -186,7 +212,7 @@ code {
   outline: none;
   border: none;
   background-color: black;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 0.8rem;
   width: 10rem;
   height: 100%;
@@ -214,6 +240,10 @@ code {
   font-size: 0.75rem;
 }
 
+.appContainer .playlistMenuContainer .addNewPlaylist input:focus {
+  border-color: white;
+}
+
 .appContainer .playlistMenuContainer .addNewPlaylist button {
   width: 3rem;
   height: 100%;
@@ -224,7 +254,7 @@ code {
   border-top-right-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   background-color: #21A62E;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   color: white;
   cursor: pointer;
 }
@@ -247,7 +277,7 @@ code {
     overflow: hidden;
     border: none;
     z-index: 100;
-    border: 2px solid #42A64C;
+    border: 3px solid rgba(66, 166, 76, 0.9);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border-top: none;
@@ -255,6 +285,16 @@ code {
     transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
+  }
+  .appContainer .playlistMenuContainer:not(.expanded):hover {
+    border: 4px solid rgba(66, 166, 76, 0.9);
+    border-top: none;
+  }
+  .appContainer .playlistMenuContainer .playlistMenu .playlistPlaceholder {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar {
+    display: none;
   }
   .appContainer .playlistMenuContainer .playlistHeaderText {
     color: transparent;
@@ -286,8 +326,8 @@ code {
         -ms-flex-align: start;
             align-items: flex-start;
     font-size: 0.9rem;
-    font-weight: 400;
-    color: #42A64C;
+    font-weight: 600;
+    color: rgba(66, 166, 76, 0.9);
     margin-top: 0.3rem;
   }
 }
@@ -324,7 +364,7 @@ code {
           align-items: center;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
+          justify-content: flex-end;
   gap: 0.3rem;
   border-bottom: 2px solid #133f17;
   padding-bottom: 1rem;
@@ -355,7 +395,7 @@ code {
   outline: none;
   border: none;
   background-color: black;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 0.8rem;
   width: 15rem;
   height: 100%;
@@ -379,6 +419,10 @@ code {
   color: rgba(255, 255, 255, 0.6);
 }
 
+.appContainer .playlistContentContainer header .addVideo input:focus {
+  border-color: white;
+}
+
 .appContainer .playlistContentContainer header .addVideo button {
   width: 3rem;
   height: 100%;
@@ -389,7 +433,7 @@ code {
   border-top-right-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
   background-color: #21A62E;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.7);
   color: white;
   cursor: pointer;
 }
@@ -450,7 +494,7 @@ code {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  background-color: white;
+  background-color: #ebebeb;
   border: 3px solid black;
   border-radius: 50%;
   color: #A61141;
@@ -472,11 +516,13 @@ code {
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer {
-  border: 4px solid rgba(255, 255, 255, 0.9);
+  border: 6px solid rgba(66, 166, 76, 0.8);
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  width: 20rem;
+  height: 11rem;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer::after {
@@ -498,28 +544,29 @@ code {
           align-items: center;
   pointer-events: none;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 800;
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer:hover::after {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   -webkit-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer img {
-  width: 20rem;
-  height: 12rem;
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo a {
   text-decoration: none;
-  color: #00b3ff;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo a:hover {
@@ -569,19 +616,21 @@ code {
         -ms-flex-align: center;
             align-items: center;
   }
+  .appContainer .playlistContentContainer .allVideos::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 401px) {
-  .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer img {
+  .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer {
     width: 16rem;
     height: 9rem;
   }
 }
 
 .appContainer .fullscreenVideoContainer {
-  width: 100vw;
-  height: 100vh;
-  background-color: #0f0f0f;
+  width: 100%;
+  height: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -589,26 +638,23 @@ code {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  gap: 1rem;
 }
 
-.appContainer .fullscreenVideoContainer button {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  color: white;
-  background-color: transparent;
-  height: 2rem;
-  width: 7rem;
-  border: 2px solid white;
-  border-radius: 1rem;
-  margin: 1rem 0 0 1rem;
+.appContainer .fullscreenVideoContainer svg {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  width: 4rem;
+  height: auto;
+  margin: 1rem 0 1rem 5%;
   cursor: pointer;
-  text-align: center;
 }
 
-.appContainer .fullscreenVideoContainer button:hover {
-  opacity: 0.6;
+.appContainer .fullscreenVideoContainer svg path {
+  stroke: #21A62E;
+}
+
+.appContainer .fullscreenVideoContainer svg:hover {
+  fill: #21A62E;
 }
 
 .appContainer .fullscreenVideoContainer iframe {

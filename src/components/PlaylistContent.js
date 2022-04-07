@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addVideoToPlaylist, removeVideoFromPlaylist, setRoute, setCurrentVideo } from '../actions';
+import FullScreenVideo from "../components/FullScreenVideo";
 
 const PlaylistContent = () => {
     const dispatch = useDispatch();
     const selectedPlaylist = useSelector(state => state.selectedPlaylist);
+    const route = useSelector(state => state.route);
 
     const videoURLinputRef = useRef(null);
     const videoURLSubmitRef = useRef(null);
@@ -76,23 +78,28 @@ const PlaylistContent = () => {
                     : <h3>Select a Playlist</h3>
                 }
             </header>
-            <div className='allVideos'>
-                {
-                    selectedPlaylist.videos?.map((video, index) => {
-                        return (
-                            <div key={index} className='singleVideo'>
-                                <button className='videoRemovalBtn' onClick={() => handleVideoRemoval(video.id, index)}>
-                                    <h2>-</h2>
-                                </button>
-                                <div className='thumbnailContainer'>
-                                    <img onClick={() => handleVideoClick(video.id)} src={video.thumbnail} alt={video.url}/>
-                                </div>
-                                <a href={video.url} target='_blank' rel='noopener noreferrer'>Watch On YouTube</a>
-                            </div>
-                        )
-                    })
-                }
-            </div>
+            
+            {
+                route === 'home' ?
+                    <div className='allVideos'>
+                        {
+                            selectedPlaylist.videos?.map((video, index) => {
+                                return (
+                                    <div key={index} className='singleVideo'>
+                                        <button className='videoRemovalBtn' onClick={() => handleVideoRemoval(video.id, index)}>
+                                            <h2>-</h2>
+                                        </button>
+                                        <div className='thumbnailContainer'>
+                                            <img onClick={() => handleVideoClick(video.id)} src={video.thumbnail} alt={video.url}/>
+                                        </div>
+                                        <a href={video.url} target='_blank' rel='noopener noreferrer'>Watch On YouTube</a>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                : <FullScreenVideo />
+            }
         </div>
     );
 };

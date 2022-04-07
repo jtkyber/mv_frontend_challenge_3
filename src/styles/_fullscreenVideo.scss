@@ -1,25 +1,22 @@
 .fullscreenVideoContainer {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba($color: #0f0f0f, $alpha: 1.0);
+    width: 100%;
+    height: 95%;
     display: flex;
     flex-flow: column nowrap;
-    gap: 1rem;
 
-    button {
-        align-self: center;
-        color: white;
-        background-color: transparent;
-        height: 2rem;
-        width: 7rem;
-        border: 2px solid white;
-        border-radius: 1rem;
-        margin: 1rem 0 0 1rem;
+    svg {
+        align-self: flex-start;
+        width: 4rem;
+        height: auto;
+        margin: 1rem 0 1rem 5%;
         cursor: pointer;
-        text-align: center;
+
+        path {
+            stroke: $light_green;
+        }
 
         &:hover {
-            opacity: 0.6;
+            fill: $light_green;
         }
     }
     
