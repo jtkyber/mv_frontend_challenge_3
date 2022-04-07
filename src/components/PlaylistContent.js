@@ -80,7 +80,7 @@ const PlaylistContent = () => {
                             <button ref={videoURLSubmitRef} onClick={handleUrlSubmit}>+</button>
                         </div>
                     </>
-                    : <h3>Select a Playlist</h3>
+                    : <h3 className='playlistContentPlaceholder'>Select a Playlist</h3>
                 }
             </header>
             

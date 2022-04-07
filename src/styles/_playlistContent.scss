@@ -21,6 +21,12 @@
         border-bottom: 2px solid $dark_green;
         padding-bottom: 1rem;
 
+        .playlistContentPlaceholder {
+            text-align: center;
+            font-weight: 600;
+            color: $velvet;
+        }
+
         h1 {
             font-weight: 600;
             font-size: 2.5rem;

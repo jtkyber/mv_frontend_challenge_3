@@ -131,8 +131,8 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistPlaceholder {
   text-align: center;
-  font-weight: 400;
-  color: black;
+  font-weight: 600;
+  color: #A61141;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem {
@@ -418,6 +418,12 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
   gap: 0.3rem;
   border-bottom: 2px solid #133f17;
   padding-bottom: 1rem;
+}
+
+.appContainer .playlistContentContainer header .playlistContentPlaceholder {
+  text-align: center;
+  font-weight: 600;
+  color: #591B2F;
 }
 
 .appContainer .playlistContentContainer header h1 {
