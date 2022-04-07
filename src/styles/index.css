@@ -2,18 +2,49 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.15rem;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: Athene, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 }
 
+@font-face {
+  font-family: Athene;
+  src: url("../assets/Athene.otf");
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input {
+  font-size: 0.6rem;
+}
+
+h1, h2, h3, h4, h5, h6, input::-webkit-input-placeholder {
+  -webkit-user-select: none;
+          user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6, input:-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6, input::-ms-input-placeholder {
+  -ms-user-select: none;
+      user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6, input::placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .bgContainer {
@@ -74,6 +105,7 @@ code {
   border-bottom: 1px solid #133f17;
   color: #133f17;
   font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu {
@@ -123,6 +155,8 @@ code {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-transition: border 0.2s;
+  transition: border 0.2s;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem.selectedPlaylist {
@@ -135,8 +169,7 @@ code {
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistItemName {
   pointer-events: none;
-  color: white;
-  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistRemovalBtn {
@@ -146,7 +179,7 @@ code {
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
-  background-color: #ebebeb;
+  background-color: #d8d8d8;
   border: 3px solid black;
   border-radius: 50%;
   color: #A61141;
@@ -159,6 +192,13 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistRemovalBtn h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.05rem 0.1rem;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistRemovalBtn:hover {
@@ -222,22 +262,18 @@ code {
 
 .appContainer .playlistMenuContainer .addNewPlaylist input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
 }
 
 .appContainer .playlistMenuContainer .addNewPlaylist input:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
 }
 
 .appContainer .playlistMenuContainer .addNewPlaylist input::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
 }
 
 .appContainer .playlistMenuContainer .addNewPlaylist input::placeholder {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.75rem;
 }
 
 .appContainer .playlistMenuContainer .addNewPlaylist input:focus {
@@ -257,6 +293,8 @@ code {
   border: 2px solid rgba(255, 255, 255, 0.7);
   color: white;
   cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .appContainer .playlistMenuContainer .addNewPlaylist button:hover {
@@ -271,7 +309,7 @@ code {
     right: 50%;
     top: 0;
     width: 7rem;
-    height: 2rem;
+    height: 2.8rem;
     -webkit-transform: translateX(50%);
             transform: translateX(50%);
     overflow: hidden;
@@ -281,14 +319,12 @@ code {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border-top: none;
-    -webkit-transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
-    transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
-  }
-  .appContainer .playlistMenuContainer:not(.expanded):hover {
-    border: 4px solid rgba(66, 166, 76, 0.9);
-    border-top: none;
+    -webkit-box-shadow: 0.4rem 0.3rem 1.3rem 0rem black;
+            box-shadow: 0.4rem 0.3rem 1.3rem 0rem black;
+    -webkit-transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
+    transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
   }
   .appContainer .playlistMenuContainer .playlistMenu .playlistPlaceholder {
     color: rgba(255, 255, 255, 0.9);
@@ -325,10 +361,10 @@ code {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: rgba(66, 166, 76, 0.9);
-    margin-top: 0.3rem;
+    margin-top: 1.2rem;
   }
 }
 
@@ -374,7 +410,6 @@ code {
   font-weight: 600;
   font-size: 2.5rem;
   color: #591B2F;
-  text-transform: uppercase;
 }
 
 .appContainer .playlistContentContainer header .addVideo {
@@ -436,6 +471,8 @@ code {
   border: 2px solid rgba(255, 255, 255, 0.7);
   color: white;
   cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .appContainer .playlistContentContainer header .addVideo button:hover {
@@ -494,10 +531,9 @@ code {
   width: 2rem;
   height: 2rem;
   cursor: pointer;
-  background-color: #ebebeb;
+  background-color: #d8d8d8;
   border: 3px solid black;
   border-radius: 50%;
-  color: #A61141;
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -508,6 +544,14 @@ code {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
+  color: #A61141;
+}
+
+.appContainer .playlistContentContainer .allVideos .singleVideo .videoRemovalBtn h2 {
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .videoRemovalBtn:hover {
@@ -545,15 +589,13 @@ code {
   pointer-events: none;
   font-size: 1rem;
   font-weight: 800;
-  -webkit-transition: all 0.15s ease-in;
-  transition: all 0.15s ease-in;
+  -webkit-transition: background-color 0.2s, color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer:hover::after {
   background-color: rgba(0, 0, 0, 0.8);
   color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo .thumbnailContainer img {
@@ -565,8 +607,11 @@ code {
 
 .appContainer .playlistContentContainer .allVideos .singleVideo a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
+  font-size: 0.7rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .appContainer .playlistContentContainer .allVideos .singleVideo a:hover {
@@ -599,7 +644,7 @@ code {
 
 @media screen and (max-width: 768px) {
   .appContainer .playlistContentContainer {
-    padding-top: 2.5rem;
+    padding-top: 3rem;
   }
   .appContainer .playlistContentContainer .allVideos {
     position: absolute;
@@ -629,7 +674,7 @@ code {
 }
 
 .appContainer .fullscreenVideoContainer {
-  width: 100%;
+  width: 90%;
   height: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -647,6 +692,8 @@ code {
   height: auto;
   margin: 1rem 0 1rem 5%;
   cursor: pointer;
+  -webkit-transition: fill 0.2s;
+  transition: fill 0.2s;
 }
 
 .appContainer .fullscreenVideoContainer svg path {

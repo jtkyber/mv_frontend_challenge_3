@@ -1,11 +1,11 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.15rem;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: Athene, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -13,13 +13,22 @@ body {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: Athene;
+  src: url('../assets/Athene.otf');
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
 
-// :root {
+input {
+  font-size: 0.6rem
+}
 
-// }
+h1,h2,h3,h4,h5,h6,input::placeholder {
+  user-select: none
+}
 
 @import './_App.scss';

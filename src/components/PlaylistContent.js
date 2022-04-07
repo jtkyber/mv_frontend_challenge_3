@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addVideoToPlaylist, removeVideoFromPlaylist, setRoute, setCurrentVideo } from '../actions';
+import { addVideoToPlaylist, removeVideoFromPlaylist, setRoute, setCurrentVideo } from '../redux/actions';
 import FullScreenVideo from "../components/FullScreenVideo";
 
 const PlaylistContent = () => {
     const dispatch = useDispatch();
+
     const selectedPlaylist = useSelector(state => state.selectedPlaylist);
     const route = useSelector(state => state.route);
 
@@ -25,11 +26,13 @@ const PlaylistContent = () => {
 
         if (currentUrl.match('https://www.youtube.com/watch?')) {
             videoID = currentUrl.split('=')[1].split('&')[0];
+
             for (let video of selectedPlaylist.videos) {
                 if (video.id === videoID) return;
             }
         } else if (currentUrl.match('https://youtu.be/')) {
             videoID = currentUrl.split('https://youtu.be/')[1];
+
             for (let video of selectedPlaylist.videos) {
                 if (video.id === videoID) return;
             }
@@ -43,16 +46,18 @@ const PlaylistContent = () => {
                 id: videoID
             }
         }));
+
         videoURLinputRef.current.value = '';
     }
 
     const handleVideoClick = (id) => {
         const embededVideoUrl = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
+
         dispatch(setCurrentVideo(embededVideoUrl));
         dispatch(setRoute('fullscreenVid'))
     }
 
-    const handleVideoRemoval = (id, index) => {
+    const handleVideoRemoval = (id) => {
         dispatch(removeVideoFromPlaylist({
             id,
             name: selectedPlaylist.name
@@ -86,7 +91,7 @@ const PlaylistContent = () => {
                             selectedPlaylist.videos?.map((video, index) => {
                                 return (
                                     <div key={index} className='singleVideo'>
-                                        <button className='videoRemovalBtn' onClick={() => handleVideoRemoval(video.id, index)}>
+                                        <button className='videoRemovalBtn' onClick={() => handleVideoRemoval(video.id)}>
                                             <h2>-</h2>
                                         </button>
                                         <div className='thumbnailContainer'>

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists, toggleMobilePlaylists, setRoute } from '../actions';
+import { addPlaylist, removePlaylist, updatePlaylistInput, setSelectedPlaylist, setPlaylists, toggleMobilePlaylists, setRoute } from '../redux/actions';
 
 const PlaylistMenu = () => {
     const dispatch = useDispatch();
+
     const playlists = useSelector(state => state.playlists);
     const playlistInput = useSelector(state => state.playlistInput);
     const selectedPlaylist = useSelector(state => state.selectedPlaylist);
@@ -16,6 +17,7 @@ const PlaylistMenu = () => {
     useEffect(() => {
         const localPlaylist = JSON.parse(localStorage.getItem('userPlaylists'));
         const localSelectedPlaylist = JSON.parse(localStorage.getItem('userSelectedPlaylist'));
+
         dispatch(setPlaylists(localPlaylist));
         dispatch(setSelectedPlaylist(localSelectedPlaylist));
 
@@ -24,7 +26,7 @@ const PlaylistMenu = () => {
         return () => {
             document.removeEventListener('keyup', handleSubmitFromEnterBtn);
         }
-    }, [])
+    }, [dispatch])
     
     useEffect(() => {
         localStorage.setItem('userPlaylists', JSON.stringify(playlists));
@@ -33,14 +35,18 @@ const PlaylistMenu = () => {
 
     const addNewPlaylist = () => {
         if (!playlistInput) return;
-        dispatch(addPlaylist(playlistInput));
+
         playlistInputRef.current.value = '';
+
+        dispatch(addPlaylist(playlistInput));
         dispatch(updatePlaylistInput(''));
     }
 
     const handlePlaylistItemClick = (e, playlist) => {
         if (e.target.tagName === 'H2') return;
+
         const playlistTemp = {...playlist};
+        
         dispatch(setRoute('home'));
         dispatch(setSelectedPlaylist(playlistTemp));
     }

@@ -1,5 +1,5 @@
 .fullscreenVideoContainer {
-    width: 100%;
+    width: 90%;
     height: 95%;
     display: flex;
     flex-flow: column nowrap;
@@ -10,11 +10,12 @@
         height: auto;
         margin: 1rem 0 1rem 5%;
         cursor: pointer;
-
+        transition: fill 0.2s;
+        
         path {
             stroke: $light_green;
         }
-
+        
         &:hover {
             fill: $light_green;
         }

@@ -1,6 +1,6 @@
 import PlaylistMenu from "./components/PlaylistMenu";
 import PlaylistContent from "./components/PlaylistContent";
-import background from './bg.jpg';
+import background from './assets/bg.jpg';
 
 function App() {
   return (
