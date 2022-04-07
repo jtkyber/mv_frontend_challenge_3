@@ -88,7 +88,7 @@ const PlaylistMenu = () => {
                 }
             </div>
             <div className='addNewPlaylist'>
-                <input ref={playlistInputRef} onChange={(e) => dispatch(updatePlaylistInput(e.target.value))} type='text' placeholder='Enter Playlist Name'></input>
+                <input maxLength='15' ref={playlistInputRef} onChange={(e) => dispatch(updatePlaylistInput(e.target.value))} type='text' placeholder='Enter Playlist Name'></input>
                 <button ref={submitBtnRef} onClick={addNewPlaylist}>+</button>
             </div>
         </div>

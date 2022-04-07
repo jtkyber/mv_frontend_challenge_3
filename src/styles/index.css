@@ -140,7 +140,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
   border: 3px solid #591B2F;
   border-radius: 1rem;
   width: 8rem;
-  min-height: 4rem;
+  min-height: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -170,6 +170,20 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistItemName {
   pointer-events: none;
   color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  padding: 0.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu .playlistItem .playlistRemovalBtn {

@@ -45,7 +45,7 @@
             border: 3px solid $velvet;
             border-radius: 1rem;
             width: 8rem;
-            min-height: 4rem;
+            min-height: 5rem;
             display: flex;
             flex-flow: column nowrap;
             justify-content: center;
@@ -64,6 +64,14 @@
             .playlistItemName {
                 pointer-events: none;
                 color: rgba($color: #ffffff, $alpha: 0.9);
+                text-align: center;
+                height: 100%;
+                width: 100%;
+                padding: 0.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
             }
 
             .playlistRemovalBtn {
