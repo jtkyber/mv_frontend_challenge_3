@@ -1,8 +1,9 @@
 .fullscreenVideoContainer {
-    width: 90%;
-    height: 95%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-flow: column nowrap;
+    justify-items: center;
 
     svg {
         align-self: flex-start;
@@ -22,7 +23,9 @@
     }
     
     iframe {
-        width: 100%;
-        height: 100%;
+        align-self: center;
+        width: 90%;
+        height: 80%;
+        border: 5px solid rgba($color: $green, $alpha: 1.0);
     }
 }

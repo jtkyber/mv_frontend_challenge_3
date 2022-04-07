@@ -57,6 +57,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
           transform: scale(1.03);
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   -webkit-filter: blur(3px);
           filter: blur(3px);
   z-index: -1;
@@ -694,8 +695,8 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 }
 
 .appContainer .fullscreenVideoContainer {
-  width: 90%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -703,6 +704,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  justify-items: center;
 }
 
 .appContainer .fullscreenVideoContainer svg {
@@ -725,8 +727,12 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 }
 
 .appContainer .fullscreenVideoContainer iframe {
-  width: 100%;
-  height: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 90%;
+  height: 80%;
+  border: 5px solid #1b5921;
 }
 
 @media screen and (max-width: 768px) {
