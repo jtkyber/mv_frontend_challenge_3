@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/mv_frontend_challenge_3/static/css/main.3680ae69.css",
-    "main.js": "/mv_frontend_challenge_3/static/js/main.0cb29b63.js",
+    "main.css": "/mv_frontend_challenge_3/static/css/main.fdb9f301.css",
+    "main.js": "/mv_frontend_challenge_3/static/js/main.2098d9f9.js",
     "static/js/787.a8b8b6cf.chunk.js": "/mv_frontend_challenge_3/static/js/787.a8b8b6cf.chunk.js",
     "static/media/bg.jpg": "/mv_frontend_challenge_3/static/media/bg.ae4eda174fea2cca3118.jpg",
+    "static/media/Athene.otf": "/mv_frontend_challenge_3/static/media/Athene.dbbe59996a40eeedbdfa.otf",
     "index.html": "/mv_frontend_challenge_3/index.html",
-    "main.3680ae69.css.map": "/mv_frontend_challenge_3/static/css/main.3680ae69.css.map",
-    "main.0cb29b63.js.map": "/mv_frontend_challenge_3/static/js/main.0cb29b63.js.map",
+    "main.fdb9f301.css.map": "/mv_frontend_challenge_3/static/css/main.fdb9f301.css.map",
+    "main.2098d9f9.js.map": "/mv_frontend_challenge_3/static/js/main.2098d9f9.js.map",
     "787.a8b8b6cf.chunk.js.map": "/mv_frontend_challenge_3/static/js/787.a8b8b6cf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3680ae69.css",
-    "static/js/main.0cb29b63.js"
+    "static/css/main.fdb9f301.css",
+    "static/js/main.2098d9f9.js"
   ]
 }
