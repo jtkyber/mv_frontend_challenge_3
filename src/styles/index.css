@@ -9,6 +9,11 @@ body {
   font-family: Athene, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -53,13 +58,11 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
   top: 0;
   width: 100vw;
   height: 100vh;
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
+  -webkit-filter: blur(0.15rem);
+          filter: blur(0.15rem);
   z-index: -1;
 }
 
