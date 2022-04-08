@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addVideoToPlaylist, removeVideoFromPlaylist, setRoute, setCurrentVideo } from '../redux/actions';
-import FullScreenVideo from "../components/FullScreenVideo";
+import VideoPlayer from "./VideoPlayer";
 
 const PlaylistContent = () => {
     const dispatch = useDispatch();
@@ -24,6 +24,8 @@ const PlaylistContent = () => {
         const currentUrl = videoURLinputRef.current.value;
         let videoID;
 
+        // Extract the YouTube video ID if the URL is valid
+        // Do nothing if video is already present in the selected playlist
         if (currentUrl.match('https://www.youtube.com/watch?')) {
             videoID = currentUrl.split('=')[1].split('&')[0];
 
@@ -51,6 +53,7 @@ const PlaylistContent = () => {
     }
 
     const handleVideoClick = (id) => {
+        // Set URL for video player, then replace thumbnails with video player by changing the route
         const embededVideoUrl = `https://www.youtube.com/embed/${id}?autoplay=1&mute=1`;
 
         dispatch(setCurrentVideo(embededVideoUrl));
@@ -65,6 +68,7 @@ const PlaylistContent = () => {
     }
 
     const handleUrlSubmitFromEnterBtn = (e) => {
+        // Map enter key to submit button if input is focused
         if (e.code === 'Enter' && e.target === videoURLinputRef.current) videoURLSubmitRef.current.click();
     }
 
@@ -103,7 +107,7 @@ const PlaylistContent = () => {
                             })
                         }
                     </div>
-                : <FullScreenVideo />
+                : <VideoPlayer />
             }
         </div>
     );
