@@ -13,3 +13,10 @@ A place where users can organize YouTube videos into playlists that they create,
     1. To leave the video player, click on the back arrow located above the video
 9. To delete a video from a playlist, click on the "-" button located on the upper right-hand side of the thumbnail
 10. To delete an entire playlist, click on the "-" button located on the upper right-hand side of the playlist item 
+
+## Features
+* Create playlists that can each hold a separate list of videos
+* Playlists (and the videos contained in them), along with the currently selected playlist, are stored in local storage
+* Options to remove individual videos from a playlist, or delete the playlist entirely
+* Watch the videos in a video player or on YouTube via a link
+* Responsive and mobile friendly
