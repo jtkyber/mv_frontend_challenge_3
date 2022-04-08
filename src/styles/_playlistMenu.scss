@@ -175,7 +175,7 @@
         cursor: pointer;
         background-color: rgba($color: #000000, $alpha: 0.9);
         box-shadow: 0.3rem 0.2rem 1.3rem 0rem rgba($color: #000000, $alpha: 0.8);
-        transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
+        transition: height 0.3s linear, width 0.15s linear 0.3s;
         
         .playlistMenu {
             .playlistPlaceholder {
@@ -194,7 +194,7 @@
             width: 100%;
             height: 100%;
             cursor: default;
-            transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
+            transition: width 0.15s linear, height 0.3s linear 0.15s;
         }
 
         &::after {
