@@ -336,8 +336,8 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
     border-top: none;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
-    -webkit-box-shadow: 0.3rem 0.2rem 1.3rem 0rem black;
-            box-shadow: 0.3rem 0.2rem 1.3rem 0rem black;
+    -webkit-box-shadow: 0.3rem 0.2rem 1.3rem 0rem rgba(0, 0, 0, 0.8);
+            box-shadow: 0.3rem 0.2rem 1.3rem 0rem rgba(0, 0, 0, 0.8);
     -webkit-transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
     transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
   }
