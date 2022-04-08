@@ -13,18 +13,18 @@ $dimmed_white: #d8d8d8;
     }
   
     &::-webkit-scrollbar-thumb {
-      background: transparent;
+      background-color: transparent;
       border: 1px solid $maroon;
       border-radius: 1rem;
 
         &:hover {
-          background: $maroon;
+          background-color: $maroon;
         }
     }
 
   
     &::-webkit-scrollbar-track {
-      background: transparent;
+      background-color: transparent;
     }
   
     & {
@@ -37,6 +37,8 @@ $dimmed_white: #d8d8d8;
     &::-webkit-scrollbar {
       display: none;
     }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .bgContainer {

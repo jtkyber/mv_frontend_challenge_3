@@ -227,17 +227,17 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 }
 
 .appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-thumb {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #A61141;
   border-radius: 1rem;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-thumb:hover {
-  background: #A61141;
+  background-color: #A61141;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu::-webkit-scrollbar-track {
-  background: transparent;
+  background-color: transparent;
 }
 
 .appContainer .playlistMenuContainer .playlistMenu {
@@ -340,6 +340,10 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
             box-shadow: 0.4rem 0.3rem 1.3rem 0rem black;
     -webkit-transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
     transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
+  }
+  .appContainer .playlistMenuContainer .playlistMenu {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .appContainer .playlistMenuContainer .playlistMenu .playlistPlaceholder {
     color: rgba(255, 255, 255, 0.9);
@@ -645,17 +649,17 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 }
 
 .appContainer .playlistContentContainer .allVideos::-webkit-scrollbar-thumb {
-  background: transparent;
+  background-color: transparent;
   border: 1px solid #A61141;
   border-radius: 1rem;
 }
 
 .appContainer .playlistContentContainer .allVideos::-webkit-scrollbar-thumb:hover {
-  background: #A61141;
+  background-color: #A61141;
 }
 
 .appContainer .playlistContentContainer .allVideos::-webkit-scrollbar-track {
-  background: transparent;
+  background-color: transparent;
 }
 
 .appContainer .playlistContentContainer .allVideos {
@@ -681,6 +685,8 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   .appContainer .playlistContentContainer .allVideos::-webkit-scrollbar {
     display: none;
