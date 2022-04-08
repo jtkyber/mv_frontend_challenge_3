@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
         grid-template-rows: 3rem 1fr 3rem;
     right: 50%;
     top: 0;
-    width: 7rem;
+    width: 8rem;
     height: 2.8rem;
     -webkit-transform: translateX(50%);
             transform: translateX(50%);
@@ -336,8 +336,8 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
     border-top: none;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.9);
-    -webkit-box-shadow: 0.4rem 0.3rem 1.3rem 0rem black;
-            box-shadow: 0.4rem 0.3rem 1.3rem 0rem black;
+    -webkit-box-shadow: 0.3rem 0.2rem 1.3rem 0rem black;
+            box-shadow: 0.3rem 0.2rem 1.3rem 0rem black;
     -webkit-transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
     transition: height 0.3s ease-in-out, width 0.15s ease-out 0.3s;
   }
@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: rgba(66, 166, 76, 0.9);
     margin-top: 1.2rem;
@@ -420,7 +420,6 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  gap: 0.3rem;
   border-bottom: 2px solid #133f17;
   padding-bottom: 1rem;
 }
@@ -669,7 +668,14 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
 
 @media screen and (max-width: 768px) {
   .appContainer .playlistContentContainer {
-    padding-top: 3rem;
+    padding-top: 3.5rem;
+  }
+  .appContainer .playlistContentContainer header {
+    padding-bottom: 0.5rem;
+    border-width: 4px;
+  }
+  .appContainer .playlistContentContainer header h1 {
+    margin-bottom: -0.4rem;
   }
   .appContainer .playlistContentContainer .allVideos {
     position: absolute;
