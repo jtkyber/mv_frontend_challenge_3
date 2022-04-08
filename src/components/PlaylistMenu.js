@@ -58,9 +58,12 @@ const PlaylistMenu = () => {
     }
 
     const handlePlaylistRemoval = (name, index) => {
-        // Change selected playlist if removed playlist is same as selected, 
+        // Change selected playlist and exit out of video player if removed playlist is same as selected, 
         // then remove clicked playlist based on it's index in the array
-        if (name === selectedPlaylist.name) dispatch(setSelectedPlaylist(playlists[index + 1] || playlists[index - 1] || {}))
+        if (name === selectedPlaylist.name) {
+            dispatch(setRoute('home'));
+            dispatch(setSelectedPlaylist(playlists[index + 1] || playlists[index - 1] || {}))
+        }
         dispatch(removePlaylist(index));
     }
 
