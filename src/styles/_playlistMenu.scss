@@ -195,6 +195,7 @@
             height: 100%;
             cursor: default;
             transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
+            border-radius: 0;
         }
 
         &::after {

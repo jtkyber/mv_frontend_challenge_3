@@ -364,6 +364,7 @@ h1, h2, h3, h4, h5, h6, input::placeholder {
     cursor: default;
     -webkit-transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
     transition: width 0.15s ease-out, height 0.3s ease-in-out 0.15s;
+    border-radius: 0;
   }
   .appContainer .playlistMenuContainer::after {
     content: "PLAYLISTS";

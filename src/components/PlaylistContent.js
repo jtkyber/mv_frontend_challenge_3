@@ -69,7 +69,7 @@ const PlaylistContent = () => {
 
     const handleUrlSubmitFromEnterBtn = (e) => {
         // Map enter key to submit button if input is focused
-        if (e.code === 'Enter' && e.target === videoURLinputRef.current) videoURLSubmitRef.current.click();
+        if (e.key === 'Enter' && e.target === videoURLinputRef.current) videoURLSubmitRef.current.click();
     }
 
     return (

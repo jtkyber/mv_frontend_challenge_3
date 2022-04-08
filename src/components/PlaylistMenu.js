@@ -69,7 +69,7 @@ const PlaylistMenu = () => {
 
     const handleSubmitFromEnterBtn = (e) => {
         // Map enter key to submit button if input is focused
-        if (e.code === 'Enter' && e.target === playlistInputRef.current) submitBtnRef.current.click();
+        if (e.key === 'Enter' && e.target === playlistInputRef.current) submitBtnRef.current.click();
     }
 
     const handlePlaylistTabClick = (e) => {
