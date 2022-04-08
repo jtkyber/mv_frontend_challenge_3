@@ -15,11 +15,11 @@ const PlaylistMenu = () => {
     const playlistMenuContainerRef = useRef(null);
 
     useEffect(() => {
-        const localPlaylist = JSON.parse(localStorage.getItem('userPlaylists'));
+        const localPlaylists = JSON.parse(localStorage.getItem('userPlaylists'));
         const localSelectedPlaylist = JSON.parse(localStorage.getItem('userSelectedPlaylist'));
 
-        dispatch(setPlaylists(localPlaylist));
-        dispatch(setSelectedPlaylist(localSelectedPlaylist));
+        dispatch(setPlaylists(localPlaylists || []));
+        dispatch(setSelectedPlaylist(localSelectedPlaylist || {}));
 
         document.addEventListener('keyup', handleSubmitFromEnterBtn);
 
